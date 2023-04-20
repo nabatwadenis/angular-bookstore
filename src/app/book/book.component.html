@@ -1,0 +1,17 @@
+<li class="books">
+    <div class="card-container" (mouseenter)="flipCard(true)" (mouseleave)="flipCard(false)">
+        <div class="card-front">
+            <img [src] ="book.image" 
+            [alt]="book.name" width="100">
+            <p class="title">{{ book.name | titlecase}} by {{ book.author |titlecase}}</p>
+            <p class="currency">{{book.amount | currency: "Ksh"}}</p>
+        </div>
+        <div class="card-back">
+            <p style="color: aquamarine;">here is some extra information on the books</p>
+            <p>{{book.Info.text}}</p>
+            <p style="font-weight: 800;">{{book.Info.rating}}</p>
+            <button (click) ="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    
+</li>
