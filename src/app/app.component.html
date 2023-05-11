@@ -1,2 +1,14 @@
-<h1>Programmer's Hub</h1>
-<app-books></app-books>
+<nav class="flex justify-between p-4 bg-purple-900 text-white">
+    <div>
+        <a routerLink="">Bookshop</a>
+    </div>
+    <div>
+        <a  class="mx-4"  routerLink="cart">My Cart</a>
+        <a class="mx-4"  routerLink="login">Login</a>
+        <a  class="mx-4" routerLink="register">Register</a>
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+

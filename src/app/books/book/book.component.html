@@ -1,17 +1,20 @@
-<li class="books">
+<li class="books flex border rounded-xl h-65 m-auto mt-5 ml-3">
     <div class="card-container" (mouseenter)="flipCard(true)" (mouseleave)="flipCard(false)">
         <div class="card-front">
             <img [src] ="book.image" 
-            [alt]="book.name" width="100">
-            <p class="title">{{ book.name | titlecase}} by {{ book.author |titlecase}}</p>
+            [alt]="book.name" width="100"
+            class="m-auto rounded-sm">
+            <p class="title text-lg">{{ book.name | titlecase}} by {{ book.author |titlecase}}</p>
             <p class="currency">{{book.amount | currency: "Ksh"}}</p>
         </div>
         <div class="card-back">
             <p style="color: aquamarine;">here is some extra information on the books</p>
             <p>{{book.Info.text}}</p>
             <p style="font-weight: 800;">{{book.Info.rating}}</p>
-            <button (click) ="addToCart()">Add to Cart</button>
+            <button class="bg-yellow-400 rounded p-3" *ngIf="!isInCart"  (click) ="addToCart()">Add to Cart</button>
+            <button class="bg-yellow-400 rounded p-3" *ngIf="isInCart"  (click)="remFromCart()">Remove from Cart</button>
         </div>
     </div>
     
 </li>
+
