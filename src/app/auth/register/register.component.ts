@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterForm } from 'src/app/types/Auth';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,11 +16,17 @@ export class RegisterComponent implements OnInit {
     confirm_password: '',
   }
 
-  ngOnInit(): void {
-      
-  }
+  
+
+  ngOnInit(): void { }
+  constructor(private authServices: AuthService){}
+
   submit(){
-    console.log(this.form)
+    
+    this.authServices.register(this.form);
+  }
+  isLoading(){
+    return this.authServices.isLoading;
   }
 
 }

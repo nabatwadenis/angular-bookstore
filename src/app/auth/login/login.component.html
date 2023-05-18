@@ -1,5 +1,5 @@
 <div class="flex h-screen justify-center">
-    <form (ngSubmit)="submit()" class="p-4 rounded-lg border m-auto w-1/3">
+    <form (ngSubmit)="submit()" #myform="ngForm" class="p-4 rounded-lg border m-auto w-1/3">
         <h1 class="text-center text-xl">Login</h1>
         <div class="my-5 w-full">
             <label for="email" class="w-full">Email</label>
@@ -12,8 +12,14 @@
         </div>
         <div *ngIf="" class="p-2 bg-red-300 text-red-500 rounded" [hidden]="password.valid">Email field must be valid</div>
         <div class="my-5">
-            <input type="submit" class="p-2 w-full bg-purple-700 text-white hover:bg-purple-900 rounded">
-        </div>
+            <button type="submit" [disabled]="myform.form.invalid" class="p-2 w-full bg-purple-700 text-white hover:bg-purple-900 rounded">
+                <ng-container *ngIf="isLoading()">
+                    Loading...
+                </ng-container>
+                <ng-container *ngIf="!isLoading()">
+                    Submit
+                </ng-container></button>
+            </div>
     </form>
 
 </div>

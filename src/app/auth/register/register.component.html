@@ -18,7 +18,13 @@
         </div>
         <div *ngIf="confirm_password.invalid && (confirm_password.dirty || confirm_password.touched)" class="p-2 bg-red-300 text-red-500 rounded" [hidden]="confirm_password.valid">must match password provided</div>
         <div class="my-5">
-            <input type="submit" [disabled]="myform.form.invalid" class="p-2 w-full bg-green-700 text-white hover:bg-green-900 rounded">
+            <button type="submit" [disabled]="myform.form.invalid" class="p-2 w-full bg-purple-700 text-white hover:bg-purple-900 rounded">
+                <ng-container *ngIf="isLoading()">
+                    Loading...
+                </ng-container>
+                <ng-container *ngIf="!isLoading()">
+                    Submit
+                </ng-container></button>
         </div>
     </form>
 
